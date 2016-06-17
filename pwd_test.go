@@ -26,10 +26,13 @@ func TestHome(t *testing.T) {
 
 	home := "/home/jack"
 
+	if pwd := Pwd("/home/jack", home, 20); pwd != "~" {
+		t.Error("~, ", pwd)
+	}
+
 	if pwd := Pwd("/home/jack/local/bin/go", home, 30); pwd != "~/local/bin/go" {
 		t.Error("over, ", pwd)
 	}
-
 	if pwd := Pwd("/home/jack/local/bin/go", home, 13); pwd != "~...al/bin/go" {
 		t.Error("under, ", pwd)
 	}

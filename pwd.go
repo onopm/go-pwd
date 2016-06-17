@@ -27,7 +27,7 @@ func Pwd(pwd string, home string, maxLen int) string {
 	prefixHome := "~..."
 	prefixRoot := "/..."
 
-	if len(pwd) > len(home) {
+	if len(pwd) >= len(home) {
 
 		if pwd[:len(home)] == home {
 			path := "~" + pwd[len(home):]
