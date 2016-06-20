@@ -10,10 +10,15 @@ const defMaxLen = 30
 
 func main() {
 
-	arg := os.Args[1]
-	maxLen, err := strconv.Atoi(arg)
-	if err != nil {
-		maxLen = defMaxLen
+	maxLen := defMaxLen
+
+	if len(os.Args) > 1 {
+		l, err := strconv.Atoi(os.Args[1])
+		if err != nil {
+			maxLen = defMaxLen
+		} else {
+			maxLen = l
+		}
 	}
 
 	home := os.Getenv("HOME")
